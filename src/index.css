@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Agency Design System - Website Redesign Landing */
+
+@layer base {
+  :root {
+    /* Dark professional theme */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Deep blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Secondary: Slate blue */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent: Purple */
+    --accent: 270 91% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(270 91% 65%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 11%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 7%) 100%);
+    --gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, hsla(217 91% 60% / 0.3) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px -15px hsla(217 91% 60% / 0.4);
+    --shadow-card: 0 25px 50px -12px hsla(0 0% 0% / 0.5);
+    --shadow-button: 0 4px 14px 0 hsla(217 91% 60% / 0.4);
+
+    /* Success color for metrics */
+    --success: 142 76% 36%;
+    --success-foreground: 142 76% 90%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 270 91% 65%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .gradient-bg {
+    background-image: var(--gradient-primary);
+  }
+
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-white/10 rounded-xl;
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hero-glow {
+    background: var(--gradient-glow);
+  }
+
+  .metric-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold;
+    background: hsla(142 76% 36% / 0.15);
+    color: hsl(var(--success-foreground));
+    border: 1px solid hsla(142 76% 36% / 0.3);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32 px-4 md:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
